@@ -1,0 +1,342 @@
+/* ============================================================
+   NOC MAINTENANCE PLANNER — Form Styles (shared, all steps)
+   Theme: Minimalist Light / Blue & Indigo
+   ============================================================ */
+
+/* ══════════════════════════════════════════════════════════
+   STEP CONTAINER
+══════════════════════════════════════════════════════════ */
+
+.form-step-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+    max-width: 560px;
+    margin: 0 auto;
+    padding: 40px 0 24px;
+    animation: step-in 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes step-in {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ══════════════════════════════════════════════════════════
+   PROGRESS BAR
+══════════════════════════════════════════════════════════ */
+
+.form-progress {
+    width: 100%;
+    height: 8px;
+    background: var(--bg-subtle, #eef1fb);
+    border-radius: var(--radius-full, 999px);
+    overflow: hidden;
+    position: relative;
+}
+
+.form-progress-filled {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent, #4f6ef7), var(--indigo, #6366f1));
+    border-radius: var(--radius-full, 999px);
+    display: flex;
+    align-items: center;
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+/* Step numbers shown separately below bar */
+.form-progress-steps {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.form-progress-step {
+    margin: 0;
+    font-family: var(--font-ui, 'DM Sans', sans-serif);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-muted, #a0a8c0);
+    transition: color 0.2s;
+}
+
+.form-progress-step.active {
+    color: var(--accent, #4f6ef7);
+    font-weight: 600;
+}
+
+/* ══════════════════════════════════════════════════════════
+   SHARED LABEL STYLE
+══════════════════════════════════════════════════════════ */
+
+.input-text-container > p:first-child,
+.input-number-container > p:first-child,
+.input-zones-container .input-text-container > p:first-child {
+    margin: 0;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-secondary, #6b7280);
+}
+
+/* ══════════════════════════════════════════════════════════
+   INPUT GROUP — TEXT
+══════════════════════════════════════════════════════════ */
+
+.input-text-container {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.input-text-container input[type="text"],
+.input-text-container textarea {
+    width: 100%;
+    box-sizing: border-box;
+    background: var(--bg-surface, #ffffff);
+    border: 1.5px solid var(--border, #e2e6f3);
+    border-radius: var(--radius-md, 12px);
+    padding: 11px 16px;
+    font-family: var(--font-ui, 'DM Sans', sans-serif);
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--text-primary, #1e2340);
+    outline: none;
+    transition: border-color var(--transition, 180ms ease),
+                box-shadow var(--transition, 180ms ease);
+    caret-color: var(--accent, #4f6ef7);
+}
+
+.input-text-container input[type="text"]::placeholder,
+.input-text-container textarea::placeholder {
+    color: var(--text-muted, #a0a8c0);
+}
+
+.input-text-container input[type="text"]:focus,
+.input-text-container textarea:focus {
+    border-color: var(--accent, #4f6ef7);
+    box-shadow: 0 0 0 3px var(--accent-dim, rgba(79, 110, 247, 0.1));
+}
+
+.input-text-container textarea {
+    min-height: 100px;
+    resize: vertical;
+    line-height: 1.6;
+}
+
+.input-text-container input.input-error,
+.input-text-container textarea.input-error {
+    border-color: var(--danger, #ef4444);
+    box-shadow: 0 0 0 3px var(--danger-dim, rgba(239, 68, 68, 0.08));
+}
+
+/* ══════════════════════════════════════════════════════════
+   INPUT GROUP — NUMBER
+══════════════════════════════════════════════════════════ */
+
+.input-number-container {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.input-number-container input[type="number"] {
+    width: 100%;
+    box-sizing: border-box;
+    background: var(--bg-surface, #ffffff);
+    border: 1.5px solid var(--border, #e2e6f3);
+    border-radius: var(--radius-md, 12px);
+    padding: 11px 16px;
+    font-family: var(--font-ui, 'DM Sans', sans-serif);
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--text-primary, #1e2340);
+    outline: none;
+    transition: border-color var(--transition, 180ms ease),
+                box-shadow var(--transition, 180ms ease);
+    caret-color: var(--accent, #4f6ef7);
+    -moz-appearance: textfield;
+}
+
+.input-number-container input[type="number"]::-webkit-outer-spin-button,
+.input-number-container input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.input-number-container input[type="number"]:focus {
+    border-color: var(--accent, #4f6ef7);
+    box-shadow: 0 0 0 3px var(--accent-dim, rgba(79, 110, 247, 0.1));
+}
+
+.input-number-container input.input-error {
+    border-color: var(--danger, #ef4444);
+    box-shadow: 0 0 0 3px var(--danger-dim, rgba(239, 68, 68, 0.08));
+}
+
+/* ══════════════════════════════════════════════════════════
+   INPUT GROUP — ZONES
+══════════════════════════════════════════════════════════ */
+
+.input-zones-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.input-text-add-button {
+    align-self: flex-start;
+    font-family: var(--font-ui, 'DM Sans', sans-serif);
+    font-size: 13px;
+    font-weight: 500;
+    padding: 8px 18px;
+    border-radius: var(--radius-full, 999px);
+    border: 1.5px solid var(--accent, #4f6ef7);
+    background: transparent;
+    color: var(--accent, #4f6ef7);
+    cursor: pointer;
+    transition: background var(--transition, 180ms ease),
+                box-shadow var(--transition, 180ms ease);
+}
+
+.input-text-add-button:hover {
+    background: var(--accent-dim, rgba(79, 110, 247, 0.1));
+    box-shadow: 0 0 0 3px var(--accent-dim, rgba(79, 110, 247, 0.1));
+}
+
+.input-text-add-button:active {
+    background: rgba(79, 110, 247, 0.18);
+    box-shadow: none;
+}
+
+/* Zone tags */
+.output-zones-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    min-height: 36px;
+}
+
+.output-zones-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-ui, 'DM Sans', sans-serif);
+    font-size: 13px;
+    font-weight: 500;
+    padding: 5px 14px;
+    border-radius: var(--radius-full, 999px);
+    border: 1.5px solid var(--border, #e2e6f3);
+    background: var(--bg-subtle, #eef1fb);
+    color: var(--text-primary, #1e2340);
+    cursor: pointer;
+    transition: border-color var(--transition, 180ms ease),
+                background var(--transition, 180ms ease),
+                color var(--transition, 180ms ease);
+}
+
+.output-zones-button:hover {
+    border-color: var(--danger, #ef4444);
+    background: var(--danger-dim, rgba(239, 68, 68, 0.08));
+    color: var(--danger, #ef4444);
+}
+
+/* ══════════════════════════════════════════════════════════
+   ERROR MESSAGES
+══════════════════════════════════════════════════════════ */
+
+.field-error {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 400;
+    color: transparent;
+    height: 16px;
+    transition: color 0.15s ease;
+}
+
+.field-error.visible {
+    color: var(--danger, #ef4444);
+}
+
+p.error {
+    color: var(--danger, #ef4444);
+    font-size: 12px;
+    font-weight: 400;
+    margin: 0;
+}
+
+/* ══════════════════════════════════════════════════════════
+   BUTTONS
+══════════════════════════════════════════════════════════ */
+
+.form-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding-top: 8px;
+    border-top: 1px solid var(--border, #e2e6f3);
+}
+
+.form-buttons button {
+    font-family: var(--font-ui, 'DM Sans', sans-serif);
+    font-size: 14px;
+    font-weight: 500;
+    padding: 10px 24px;
+    border-radius: var(--radius-full, 999px);
+    border: 1.5px solid transparent;
+    cursor: pointer;
+    transition: background var(--transition, 180ms ease),
+                border-color var(--transition, 180ms ease),
+                box-shadow var(--transition, 180ms ease),
+                color var(--transition, 180ms ease);
+}
+
+.form-buttons-next {
+    background: var(--accent, #4f6ef7);
+    color: #ffffff;
+    border-color: var(--accent, #4f6ef7);
+}
+
+.form-buttons-next:hover {
+    background: var(--accent-hover, #3a58e8);
+    border-color: var(--accent-hover, #3a58e8);
+    box-shadow: 0 4px 14px var(--accent-glow, rgba(79, 110, 247, 0.3));
+}
+
+.form-buttons-next:active {
+    background: #3248d0;
+    box-shadow: none;
+}
+
+.form-buttons-back {
+    background: transparent;
+    color: var(--text-secondary, #6b7280);
+    border-color: var(--border, #e2e6f3);
+}
+
+.form-buttons-back:hover {
+    color: var(--text-primary, #1e2340);
+    border-color: var(--border-strong, #c7cee8);
+    background: var(--bg-subtle, #eef1fb);
+}
+
+/* ══════════════════════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════════════════════ */
+
+@media (max-width: 640px) {
+    .form-step-container {
+        padding: 24px 0 16px;
+        gap: 18px;
+    }
+
+    .form-buttons {
+        flex-direction: column-reverse;
+    }
+
+    .form-buttons button {
+        width: 100%;
+        justify-content: center;
+    }
+}

@@ -1,0 +1,88 @@
+/* ============================================================
+   NOC MAINTENANCE PLANNER — Footer
+   Theme: Minimalist Light / Blue & Indigo
+   ============================================================ */
+
+.footer-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--footer-h, 48px);
+    padding: 0 28px;
+    background: var(--bg-surface, #ffffff);
+    border-top: 1px solid var(--border, #e2e6f3);
+    font-family: var(--font-ui, 'DM Sans', sans-serif);
+}
+
+/* ── Left — brand ── */
+.footer-left {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+}
+
+.footer-brand {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent, #4f6ef7);
+}
+
+.footer-brand-sub {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--text-muted, #a0a8c0);
+}
+
+/* ── Center — status ── */
+.footer-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.footer-status {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--text-secondary, #6b7280);
+}
+
+.footer-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--success, #22c55e);
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4);
+    animation: footer-pulse 2.8s ease-in-out infinite;
+    flex-shrink: 0;
+}
+
+@keyframes footer-pulse {
+    0%   { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4); }
+    60%  { box-shadow: 0 0 0 6px transparent; }
+    100% { box-shadow: 0 0 0 0 transparent; }
+}
+
+/* ── Right — copyright ── */
+.footer-copy {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--text-muted, #a0a8c0);
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+    .footer-center {
+        display: none;
+    }
+
+    .footer-brand-sub {
+        display: none;
+    }
+
+    .footer-container {
+        padding: 0 16px;
+    }
+}

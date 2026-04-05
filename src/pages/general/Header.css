@@ -1,0 +1,133 @@
+/* ============================================================
+   NOC MAINTENANCE PLANNER — Header
+   Theme: Minimalist Light / Blue & Indigo
+   ============================================================ */
+
+/* ── Header shell ── */
+.header-container {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    height: var(--header-h, 64px);
+    padding: 0 28px;
+    background: var(--bg-surface, #ffffff);
+    border-bottom: 1px solid var(--border, #e2e6f3);
+    box-shadow: var(--shadow-sm, 0 1px 3px rgba(30, 35, 64, 0.06));
+    font-family: var(--font-ui, 'DM Sans', sans-serif);
+}
+
+/* ── Logo ── */
+.header-container > img:first-child {
+    height: 32px;
+    width: auto;
+    object-fit: contain;
+    margin-right: 20px;
+    flex-shrink: 0;
+}
+
+/* ── Nav links ── */
+.header-container > p {
+    position: relative;
+    margin: 0;
+    padding: 6px 14px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-secondary, #6b7280);
+    cursor: pointer;
+    user-select: none;
+    border-radius: var(--radius-full, 999px);
+    transition: color var(--transition, 180ms ease),
+                background var(--transition, 180ms ease);
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.header-container > p:hover {
+    color: var(--text-primary, #1e2340);
+    background: var(--bg-subtle, #eef1fb);
+}
+
+/* Active / selected */
+.header-container > p.active {
+    color: var(--accent, #4f6ef7);
+    background: var(--accent-dim, rgba(79, 110, 247, 0.1));
+    font-weight: 600;
+}
+
+/* ── Spacer ── */
+.header-spacer {
+    flex: 1;
+}
+
+/* ── User container ── */
+.user-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: auto;
+    padding: 6px 12px 6px 8px;
+    border: 1px solid var(--border, #e2e6f3);
+    border-radius: var(--radius-full, 999px);
+    background: var(--bg-surface, #ffffff);
+    cursor: pointer;
+    transition: border-color var(--transition, 180ms ease),
+                box-shadow var(--transition, 180ms ease);
+    flex-shrink: 0;
+}
+
+.user-container:hover {
+    border-color: var(--accent, #4f6ef7);
+    box-shadow: 0 0 0 3px var(--accent-dim, rgba(79, 110, 247, 0.1));
+}
+
+/* Avatar */
+.user-container > img {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--border, #e2e6f3);
+    flex-shrink: 0;
+}
+
+/* Name */
+.user-container > p:first-of-type {
+    margin: 0;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-primary, #1e2340);
+}
+
+/* Log out */
+.user-container > p:last-of-type {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--text-muted, #a0a8c0);
+    padding: 3px 10px;
+    border: 1px solid var(--border, #e2e6f3);
+    border-radius: var(--radius-full, 999px);
+    transition: color var(--transition, 180ms ease),
+                border-color var(--transition, 180ms ease),
+                background var(--transition, 180ms ease);
+}
+
+.user-container > p:last-of-type:hover {
+    color: var(--danger, #ef4444);
+    border-color: var(--danger, #ef4444);
+    background: var(--danger-dim, rgba(239, 68, 68, 0.08));
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+    .header-container {
+        padding: 0 16px;
+    }
+
+    .user-container > p:first-of-type {
+        display: none;
+    }
+}
