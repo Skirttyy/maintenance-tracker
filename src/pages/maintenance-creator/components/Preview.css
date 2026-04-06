@@ -1,0 +1,212 @@
+/* ============================================================
+   NOC MAINTENANCE PLANNER — Preview Panel
+   Theme: Minimalist Light / Blue & Indigo
+   ============================================================ */
+
+/* ── Wrapper ── */
+.preview-container {
+    flex-shrink: 0;
+    background: var(--bg-surface, #ffffff);
+    border: 1.5px solid var(--border, #e2e6f3);
+    border-radius: var(--radius-lg, 16px);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-self: flex-start;
+    position: sticky;
+    top: calc(var(--header-h, 64px) + 24px);
+    font-family: var(--font-ui, 'DM Sans', sans-serif);
+}
+
+/* ── Header ── */
+.preview-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.preview-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary, #1e2340);
+    letter-spacing: 0.01em;
+}
+
+.preview-step-badge {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--accent, #4f6ef7);
+    background: var(--accent-dim, rgba(79, 110, 247, 0.1));
+    padding: 3px 10px;
+    border-radius: var(--radius-full, 999px);
+}
+
+/* ── Segmented progress ── */
+.preview-progress {
+    display: flex;
+    gap: 4px;
+}
+
+.preview-progress-segment {
+    flex: 1;
+    height: 4px;
+    border-radius: var(--radius-full, 999px);
+    background: var(--bg-subtle, #eef1fb);
+    transition: background 0.3s ease;
+}
+
+.preview-progress-segment.done {
+    background: var(--indigo, #6366f1);
+    opacity: 0.5;
+}
+
+.preview-progress-segment.active {
+    background: var(--accent, #4f6ef7);
+}
+
+/* ── Sections ── */
+.preview-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.preview-section {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 4px 0;
+    transition: opacity 0.2s ease;
+}
+
+.preview-section.locked {
+    opacity: 0.35;
+    pointer-events: none;
+}
+
+.preview-section.unlocked {
+    opacity: 1;
+}
+
+.preview-section-label {
+    margin: 0;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted, #a0a8c0);
+}
+
+/* ── Rows ── */
+.preview-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    min-height: 20px;
+}
+
+.preview-row--wrap {
+    align-items: flex-start;
+}
+
+.preview-key {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--text-secondary, #6b7280);
+    flex-shrink: 0;
+}
+
+.preview-val {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-primary, #1e2340);
+    text-align: right;
+    word-break: break-word;
+}
+
+.preview-empty {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--text-muted, #a0a8c0);
+}
+
+/* ── Comment block ── */
+.preview-comment {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.preview-comment-text {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--text-secondary, #6b7280);
+    line-height: 1.5;
+    background: var(--bg-subtle, #eef1fb);
+    border-radius: var(--radius-sm, 8px);
+    padding: 8px 10px;
+    word-break: break-word;
+}
+
+/* ── Affected clients badge ── */
+.preview-badge {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent, #4f6ef7);
+    background: var(--accent-dim, rgba(79, 110, 247, 0.1));
+    padding: 2px 10px;
+    border-radius: var(--radius-full, 999px);
+}
+
+/* ── Zone chips ── */
+.preview-zones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    justify-content: flex-end;
+}
+
+.preview-zone-chip {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--indigo, #6366f1);
+    background: var(--indigo-dim, rgba(99, 102, 241, 0.1));
+    padding: 2px 9px;
+    border-radius: var(--radius-full, 999px);
+}
+
+/* ── Risk level ── */
+.preview-risk {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 10px;
+    border-radius: var(--radius-full, 999px);
+    text-transform: capitalize;
+}
+
+.preview-risk--low {
+    color: #166534;
+    background: #dcfce7;
+}
+
+.preview-risk--medium {
+    color: #92400e;
+    background: #fef3c7;
+}
+
+.preview-risk--high {
+    color: #991b1b;
+    background: #fee2e2;
+}
+
+/* ── Divider ── */
+.preview-divider {
+    height: 1px;
+    background: var(--border, #e2e6f3);
+    margin: 8px 0;
+}
+

@@ -1,0 +1,29 @@
+/* ============================================================
+   NOC MAINTENANCE PLANNER — Form Layout
+   Theme: Minimalist Light / Blue & Indigo
+   ============================================================ */
+
+.form-general-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 32px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 24px;
+}
+
+.form-general-step-container {
+    flex: 1;
+    min-width: 0;
+}
+
+.form-general-preview-container {
+    width: 300px;
+    flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+    .form-general-preview-container {
+        display: none;
+    }
+}

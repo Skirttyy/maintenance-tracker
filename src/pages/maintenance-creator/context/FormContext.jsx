@@ -5,19 +5,20 @@ export const FormStateDispatch = createContext(null)
 
 const initialForm = {
     step: 1,
-    maintenanceType: { value: "", touched: false, step: 1 },
-    maintenanceProvider: { value: "", touched: false, step: 1 },
-    comments: { value: "", touched: false, step: 1 },
-    affectedClients: { value: null, touched: false, step: 2 },
-    affectedZones: { value: [], touched: false, step: 2 },
-    startDate: { value: null, touched: false, step: 3 },
-    endDate: { value: null, touched: false, step: 3 },
-    estimatedDuration: { value: null, touched: false, step: 3 },
-    riskLeveL: { value: "", touched: false, step: 4 },
-    notifications: { value: "", touched: false, step: 4 }
+    maintenanceType: { value: "", touched: false, isEmpty: true, step: 1 },
+    maintenanceProvider: { value: "", touched: false, isEmpty: true, step: 1 },
+    comments: { value: "", touched: false, isEmpty: true, step: 1 },
+    affectedClients: { value: null, touched: false, isEmpty: true, step: 2 },
+    affectedZones: { value: [], touched: false, isEmpty: true, step: 2 },
+    startDate: { value: null, touched: false, isEmpty: true, step: 3 },
+    endDate: { value: null, touched: false, isEmpty: true, step: 3 },
+    estimatedDuration: { value: null, touched: false, isEmpty: true, step: 3 },
+    riskLeveL: { value: "", touched: false, isEmpty: true, step: 4 },
+    notifications: { value: "", touched: false, isEmpty: true, step: 4 }
 }
 
 function formReducer (state, action) {
+
     switch (action.type) {
         case "SET_FIELD":
             return {
@@ -25,6 +26,7 @@ function formReducer (state, action) {
                 [action.field]: {
                     ...state[action.field],
                     value: action.value,
+                    isEmpty: action.value === "" || action.value === null ? true : false,
                     touched: true
                 }
             }
@@ -33,18 +35,23 @@ function formReducer (state, action) {
                 ...state,
                 affectedZones: {
                     ...state.affectedZones,
+                    isEmpty: state.affectedZones.value == [] || action.value.length < 1 ? true : false,
                     value: [...state.affectedZones.value, action.value]
                 }
             }
-        case "REMOVE_ZONE":
+        case "REMOVE_ZONE": {
+            const newZones = state.affectedZones.value.filter(v => v !== action.value);
+
             return {
                 ...state,
                 affectedZones: {
                     ...state.affectedZones,
-                    value: state.affectedZones.value.filter(v => v !== action.value)
+                    value: newZones,
+                    isEmpty: newZones.length === 0
                 }
-            }
-        case "TOUCH_FILED":
+            };
+        }
+        case "TOUCH_FIELD":
             return {
                 ...state,
                 [action.field]: {
@@ -62,6 +69,11 @@ function formReducer (state, action) {
                     return [key, value]
                 })
             )
+        case "SET_STEP":
+            return {
+                ...state,
+                step: action.field
+            }
         case "RESET":
             return initialForm
     }

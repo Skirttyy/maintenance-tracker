@@ -8,11 +8,19 @@ export default function MaintenanceImpact () {
     const inputRef = useRef(null)
 
     function handleChange (field, value) {
-        dispatch({
-            type: "SET_FIELD",
-            field: field,
-            value: value
-        })
+        if (value != "") {
+            dispatch({
+                type: "SET_FIELD",
+                field: field,
+                value: value
+            })
+        } else {
+            dispatch({
+                type: "SET_FIELD",
+                field: field,
+                value: null
+            })
+        }
     }
 
     function handleAddZone () {
@@ -29,6 +37,31 @@ export default function MaintenanceImpact () {
         })
     }
 
+    function handleNextButton () {
+        if ( affectedClients.isEmpty === false && affectedZones.isEmpty === false) {
+            dispatch({
+                type: "VALIDATE_STEP",
+                stepToValidate: 2
+            })
+            dispatch({
+                type: "SET_STEP",
+                field: 3
+            })
+        } else {
+            dispatch({
+                type: "VALIDATE_STEP",
+                stepToValidate: 2
+            })
+        }
+    }
+
+    function handlePreviousButton() {
+        dispatch({
+            type: "SET_STEP",
+            field: 1
+        })
+    } 
+
     return (
         <div className="form-step-container">
             <div className="form-progress">
@@ -40,14 +73,16 @@ export default function MaintenanceImpact () {
             </div>
             <div className="input-number-container">
                 <p>Type here the number of affected clients</p>
-                <input type="number" min="0" onChange={(e) => handleChange("affectedClients", e.target.value)}></input>
-                <p className={affectedClients.touched && affectedClients.value < 0 ? "error" : ""}>You need to type a positive number of affected clients!</p>
+                <input type="number" min="-1" value={affectedClients.value > -1 ? affectedClients.value : ""}
+                onChange={(e) => handleChange("affectedClients", Number(e.target.value))}
+                onBlur={() => dispatch({type: "TOUCH_FIELD", field: "affectedClients"})}></input>
+                <p className={affectedClients.touched && (affectedClients.value < 0 || affectedClients.value === null) ? "error" : "hidden"}>You need to type a positive number of affected clients!</p>
             </div>
             <div className="input-zones-container">
                 <div className="input-text-container">
                     <p>Add here the affected zones/sites</p>
                     <input ref={inputRef} type="text" ></input>
-                    <p className={affectedClients.touched && (affectedClients.value === "" || affectedClients.value < 0) ? "error" : ""}>You did not added any zones!</p>
+                    <p className={affectedZones.touched && affectedZones.isEmpty ? "error" : "hidden"}>You did not added any zones!</p>
                     <button className="input-text-add-button" onClick={() => handleAddZone()}>Add Zone</button>
                 </div>
                 <div className="output-zones-container">
@@ -57,15 +92,13 @@ export default function MaintenanceImpact () {
                 </div>
             </div>
             <div className="form-buttons">
-                <button className="form-buttons-next" onClick={() => {dispatch({
-                    type: "VALIDATE_STEP",
-                    stepToValidate: 1
-                })}}>Next</button>
+                <button className="form-buttons-back" onClick={() => handlePreviousButton()}>Previous</button>
+                <button className="form-buttons-next" onClick={() => handleNextButton()}>Next</button>
             </div>
         </div>
     )
 }
 
 const formProgressFilledStyle = {
-    width: "25%"
+    width: "50%"
 }
