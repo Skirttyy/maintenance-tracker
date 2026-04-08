@@ -43,7 +43,7 @@ export default function MaintenaneRisk () {
             <div className="form-progress">
                 <div className="form-progress-filled" style={formProgressFilledStyle}>
                     {[1,2,3,4].map((value) => {
-                        return <p key={value} className="form-progress-step">{value}</p>
+                        return <p key={value} className="form-progress-step"></p>
                     })}
                 </div>
             </div>

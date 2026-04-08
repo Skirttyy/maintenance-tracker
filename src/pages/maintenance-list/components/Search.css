@@ -1,0 +1,114 @@
+/* ============================================================
+   NOC MAINTENANCE PLANNER — Search Bar
+   Theme: Minimalist Light / Blue & Indigo
+   ============================================================ */
+
+.search-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 32px 0 16px;
+}
+
+/* ── Text input ── */
+.search-container input {
+    flex: 1;
+    min-width: 0;
+    background: var(--bg-surface, #ffffff);
+    border: 1.5px solid var(--border, #e2e6f3);
+    border-radius: var(--radius-full, 999px);
+    padding: 11px 20px;
+    font-family: var(--font-ui, 'DM Sans', sans-serif);
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--text-primary, #1e2340);
+    outline: none;
+    transition: border-color var(--transition, 180ms ease),
+                box-shadow var(--transition, 180ms ease);
+    caret-color: var(--accent, #4f6ef7);
+}
+
+.search-container input::placeholder {
+    color: var(--text-muted, #a0a8c0);
+}
+
+.search-container input:focus {
+    border-color: var(--accent, #4f6ef7);
+    box-shadow: 0 0 0 3px var(--accent-dim, rgba(79, 110, 247, 0.1));
+}
+
+/* ── Select ── */
+.search-container select {
+    background: var(--bg-surface, #ffffff);
+    border: 1.5px solid var(--border, #e2e6f3);
+    border-radius: var(--radius-full, 999px);
+    padding: 11px 36px 11px 16px;
+    font-family: var(--font-ui, 'DM Sans', sans-serif);
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--text-primary, #1e2340);
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23a0a8c0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    flex-shrink: 0;
+    transition: border-color var(--transition, 180ms ease),
+                box-shadow var(--transition, 180ms ease);
+}
+
+.search-container select:focus {
+    border-color: var(--accent, #4f6ef7);
+    box-shadow: 0 0 0 3px var(--accent-dim, rgba(79, 110, 247, 0.1));
+}
+
+/* ── Search button ── */
+.search-container button {
+    font-family: var(--font-ui, 'DM Sans', sans-serif);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    padding: 11px 22px;
+    border-radius: var(--radius-full, 999px);
+    border: none;
+    background: var(--accent, #4f6ef7);
+    color: #ffffff;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background var(--transition, 180ms ease),
+                box-shadow var(--transition, 180ms ease);
+}
+
+.search-container button:hover {
+    background: var(--accent-hover, #3a58e8);
+    box-shadow: 0 4px 14px var(--accent-glow, rgba(79, 110, 247, 0.3));
+}
+
+.search-container button:active {
+    background: #3248d0;
+    box-shadow: none;
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+    .search-container {
+        flex-wrap: wrap;
+    }
+
+    .search-container input {
+        width: 100%;
+        flex: unset;
+    }
+
+    .search-container select {
+        flex: 1;
+    }
+
+    .search-container button {
+        width: 100%;
+    }
+}

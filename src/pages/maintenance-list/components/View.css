@@ -1,0 +1,116 @@
+/* ============================================================
+   NOC MAINTENANCE PLANNER — View Page
+   Theme: Minimalist Light / Blue & Indigo
+   ============================================================ */
+
+.view-maintenance-container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 24px 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* ── Search wrapper ── */
+.view-maintenance-search-container {
+    width: 100%;
+}
+
+/* ── Cards grid ── */
+.view-maintenance-cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+    margin-top: 8px;
+}
+
+/* ── Loading state ── */
+.view-maintenance-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 48px 0;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--text-secondary, #6b7280);
+    font-family: var(--font-ui, 'DM Sans', sans-serif);
+}
+
+.view-maintenance-loading::before {
+    content: '';
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--border, #e2e6f3);
+    border-top-color: var(--accent, #4f6ef7);
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+    flex-shrink: 0;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ── Error state ── */
+.view-maintenance-error {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 18px;
+    background: #fee2e2;
+    border: 1.5px solid #fca5a5;
+    border-radius: var(--radius-md, 12px);
+    font-family: var(--font-ui, 'DM Sans', sans-serif);
+    font-size: 13px;
+    font-weight: 500;
+    color: #991b1b;
+}
+
+.view-maintenance-error::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #ef4444;
+    flex-shrink: 0;
+}
+
+/* ── Empty state (optional, adaugă <div className="view-maintenance-empty"> dacă nu sunt carduri) ── */
+.view-maintenance-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 64px 0;
+    font-family: var(--font-ui, 'DM Sans', sans-serif);
+    text-align: center;
+}
+
+.view-maintenance-empty p:first-child {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-primary, #1e2340);
+    margin: 0;
+}
+
+.view-maintenance-empty p:last-child {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--text-secondary, #6b7280);
+    margin: 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+    .view-maintenance-container {
+        padding: 0 16px 32px;
+    }
+
+    .view-maintenance-cards-container {
+        grid-template-columns: 1fr;
+    }
+}

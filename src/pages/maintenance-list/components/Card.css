@@ -1,0 +1,207 @@
+/* ============================================================
+   NOC MAINTENANCE PLANNER — Maintenance Card
+   Theme: Minimalist Light / Blue & Indigo
+   ============================================================ */
+
+.view-maintenance-card-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: var(--bg-surface, #ffffff);
+    border: 1.5px solid var(--border, #e2e6f3);
+    border-radius: var(--radius-lg, 16px);
+    padding: 18px 20px;
+    font-family: var(--font-ui, 'DM Sans', sans-serif);
+    transition: box-shadow var(--transition, 180ms ease),
+                border-color var(--transition, 180ms ease);
+}
+
+.view-maintenance-card-container:hover {
+    border-color: var(--border-strong, #c7cee8);
+    box-shadow: var(--shadow-md, 0 4px 16px rgba(30, 35, 64, 0.08));
+}
+
+/* ── Header ── */
+.card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.card-header-left {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.card-type {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-primary, #1e2340);
+}
+
+.card-provider {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--text-secondary, #6b7280);
+}
+
+/* ── Risk badge ── */
+.card-risk {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 12px;
+    border-radius: var(--radius-full, 999px);
+    text-transform: capitalize;
+    flex-shrink: 0;
+}
+
+.card-risk--high {
+    color: #991b1b;
+    background: #fee2e2;
+}
+
+.card-risk--medium {
+    color: #92400e;
+    background: #fef3c7;
+}
+
+.card-risk--low {
+    color: #166534;
+    background: #dcfce7;
+}
+
+.card-risk--innocent {
+    color: #1e3a5f;
+    background: #dbeafe;
+}
+
+/* ── Divider ── */
+.card-divider {
+    height: 1px;
+    background: var(--border, #e2e6f3);
+}
+
+/* ── Body rows ── */
+.card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.card-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.card-row--wrap {
+    align-items: flex-start;
+}
+
+.card-key {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--text-secondary, #6b7280);
+    flex-shrink: 0;
+}
+
+.card-val {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-primary, #1e2340);
+    text-align: right;
+}
+
+.card-empty {
+    font-size: 12px;
+    color: var(--text-muted, #a0a8c0);
+}
+
+/* ── Clients badge ── */
+.card-badge {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent, #4f6ef7);
+    background: var(--accent-dim, rgba(79, 110, 247, 0.1));
+    padding: 2px 10px;
+    border-radius: var(--radius-full, 999px);
+}
+
+/* ── Zone chips ── */
+.card-zones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    justify-content: flex-end;
+}
+
+.card-zone-chip {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--indigo, #6366f1);
+    background: var(--indigo-dim, rgba(99, 102, 241, 0.1));
+    padding: 2px 9px;
+    border-radius: var(--radius-full, 999px);
+}
+
+/* ── Comments ── */
+.card-comments {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--text-secondary, #6b7280);
+    line-height: 1.5;
+    background: var(--bg-subtle, #eef1fb);
+    border-radius: var(--radius-sm, 8px);
+    padding: 10px 12px;
+    word-break: break-word;
+}
+
+/* ── Footer ── */
+.card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.card-notification {
+    font-size: 11px;
+    font-weight: 500;
+    padding: 3px 12px;
+    border-radius: var(--radius-full, 999px);
+}
+
+.card-notification--sent {
+    color: #166534;
+    background: #dcfce7;
+}
+
+.card-notification--pending {
+    color: var(--text-muted, #a0a8c0);
+    background: var(--bg-subtle, #eef1fb);
+}
+
+.card-view-button {
+    font-family: var(--font-ui, 'DM Sans', sans-serif);
+    font-size: 12px;
+    font-weight: 500;
+    padding: 7px 16px;
+    border-radius: var(--radius-full, 999px);
+    border: 1.5px solid var(--border, #e2e6f3);
+    background: transparent;
+    color: var(--text-secondary, #6b7280);
+    cursor: pointer;
+    transition: color var(--transition, 180ms ease),
+                border-color var(--transition, 180ms ease),
+                background var(--transition, 180ms ease);
+}
+
+.card-view-button:hover {
+    color: var(--accent, #4f6ef7);
+    border-color: var(--accent, #4f6ef7);
+    background: var(--accent-dim, rgba(79, 110, 247, 0.06));
+}

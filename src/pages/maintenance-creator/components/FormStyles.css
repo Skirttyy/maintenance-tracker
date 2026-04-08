@@ -157,6 +157,7 @@
                 box-shadow var(--transition, 180ms ease);
     caret-color: var(--accent, #4f6ef7);
     -moz-appearance: textfield;
+    appearance: textfield;
 }
 
 .input-number-container input[type="number"]::-webkit-outer-spin-button,

@@ -1,0 +1,7 @@
+[
+  { "value": "all", "label": "All Types" },
+  { "value": "high", "label": "High Impact" },
+  { "value": "medium", "label": "Medium Impact" },
+  { "value": "low", "label": "Low Impact" },
+  { "value": "innocent", "label": "No Impact" }
+]
