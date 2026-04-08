@@ -2,7 +2,7 @@ import { useFormDispatchContext, useFormStateContext } from "../context/FormCont
 import "./FormStyles.css"
 
 export default function MaintenanceTime () {
-    let { startDate, endDate, estimatedDuration } = useFormStateContext()
+    let { startDate, endDate } = useFormStateContext()
     const dispatch = useFormDispatchContext()
 
     function handleChange (field, value) {
@@ -22,7 +22,7 @@ export default function MaintenanceTime () {
     }
 
     function handleNextButton () {
-        if ( startDate.isEmpty === false && endDate.isEmpty === false && estimatedDuration.isEmpty === false) {
+        if ( startDate.isEmpty === false && endDate.isEmpty === false) {
             dispatch({
                 type: "VALIDATE_STEP",
                 stepToValidate: 3

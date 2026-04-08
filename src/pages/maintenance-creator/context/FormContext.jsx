@@ -5,6 +5,7 @@ export const FormStateDispatch = createContext(null)
 
 const initialForm = {
     step: 1,
+    sent: false,
     maintenanceType: { value: "", touched: false, isEmpty: true, step: 1 },
     maintenanceProvider: { value: "", touched: false, isEmpty: true, step: 1 },
     comments: { value: "", touched: false, isEmpty: true, step: 1 },
@@ -13,7 +14,7 @@ const initialForm = {
     startDate: { value: null, touched: false, isEmpty: true, step: 3 },
     endDate: { value: null, touched: false, isEmpty: true, step: 3 },
     estimatedDuration: { value: null, touched: false, isEmpty: true, step: 3 },
-    riskLeveL: { value: "", touched: false, isEmpty: true, step: 4 },
+    riskLevel: { value: "", touched: false, isEmpty: true, step: 4 },
     notifications: { value: "", touched: false, isEmpty: true, step: 4 }
 }
 
@@ -73,6 +74,11 @@ function formReducer (state, action) {
             return {
                 ...state,
                 step: action.field
+            }
+        case "CONFIRM":
+            return {
+                ...state,
+                sent: true
             }
         case "RESET":
             return initialForm

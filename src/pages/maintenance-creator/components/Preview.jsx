@@ -14,7 +14,7 @@ export default function Preview() {
         startDate,
         endDate,
         estimatedDuration,
-        riskLeveL,
+        riskLevel,
         notifications
     } = state
 
@@ -28,11 +28,11 @@ export default function Preview() {
         <aside className="preview-container">
             <div className="preview-header">
                 <span className="preview-title">Preview</span>
-                <span className="preview-step-badge">Step {step} of 4</span>
+                <span className="preview-step-badge">{step < 5 ? `Step ${step} of 4` : `Maintenance added`}</span>
             </div>
 
             <div className="preview-progress">
-                {[1, 2, 3, 4].map((s) => (
+                {[1, 2, 3, 4, 5].map((s) => (
                     <div
                         key={s}
                         className={`preview-progress-segment ${s < step ? "done" : s === step ? "active" : ""}`}
@@ -121,15 +121,17 @@ export default function Preview() {
                     <div className="preview-row">
                         <span className="preview-key">Risk</span>
                         <span className="preview-val">
-                            {riskLeveL.value
-                                ? <span className={`preview-risk preview-risk--${riskLeveL.value.toLowerCase()}`}>{riskLeveL.value}</span>
+                            {riskLevel.value
+                                ? <span className={`preview-risk preview-risk--${riskLevel.value.toLowerCase()}`}>{riskLevel.value}</span>
                                 : <span className="preview-empty">—</span>}
                         </span>
                     </div>
                     <div className="preview-row">
                         <span className="preview-key">Notify</span>
                         <span className="preview-val">
-                            {notifications.value || <span className="preview-empty">—</span>}
+                            {notifications.value === null ? <span className="preview-empty">—</span> : ""}
+                            {notifications.value === true ? <span className="preview-empty">Sent</span> : ""}
+                            {notifications.value === false ? <span className="preview-empty">Not sent</span> : ""}
                         </span>
                     </div>
                 </div>

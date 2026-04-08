@@ -42,21 +42,24 @@ export default function MaintenanceType () {
             </div>
             <div className="input-text-container">
                 <p>Type here the maintenance type *</p>
-                <input type="text" 
+                <input type="text"
+                value={maintenanceType.value === null ? "" : maintenanceType.value}
                 onChange={(e) => handleChange("maintenanceType", e.target.value)} 
                 onBlur={() => dispatch({type: "TOUCH_FIELD", field: "maintenanceType"})}></input>
                 <p className={maintenanceType.touched && maintenanceType.isEmpty ? "error" : "hidden"}>You need to type here a short title!</p>
             </div>
             <div className="input-text-container">
                 <p>Type here the maintenance provider *</p>
-                <input type="text" 
+                <input type="text"
+                value={maintenanceProvider.value === null ? "" : maintenanceProvider.value}
                 onChange={(e) => handleChange("maintenanceProvider", e.target.value)}
                 onBlur={() => dispatch({type: "TOUCH_FIELD", field: "maintenanceProvider"})}></input>
                 <p className={maintenanceProvider.touched && maintenanceProvider.isEmpty ? "error" : "hidden"}>You need to type here the provider!</p>
             </div>
             <div className="input-text-container">
                 <p>Type here any additional comments *</p>
-                <textarea 
+                <textarea
+                value={comments.value === null ? "" : comments.value}
                 onChange={(e) => handleChange("comments", e.target.value)}
                 onBlur={() => dispatch({type: "TOUCH_FIELD", field: "comments"})}></textarea>
                 <p className={comments.touched && comments.isEmpty ? "error" : "hidden"}>You need to type here any coments!</p>
