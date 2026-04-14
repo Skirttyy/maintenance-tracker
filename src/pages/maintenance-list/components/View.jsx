@@ -6,11 +6,11 @@ import useFetch from "../hooks/useFetch"
 
 export default function View () {
     const url = "http://localhost:9090/api/maintenances/get/"
-    const [params, setParams] = useState({ type: "all", page: 0, size: 10 });
-    const { data, loading, error } = useFetch(url, params.type, params.page, params.size);
+    const [params, setParams] = useState({ type: "risk-level", content: "low", page: 0, size: 10 });
+    const { data, loading, error } = useFetch(url, params.type, params.content, params.page, params.size);
 
     function handleSearch (searchText, searchType) {
-        setParams({type: searchType, page: 0, size: 10})
+        setParams({type: searchType, content: searchText, page: 0, size: 10})
     }
 
     return (

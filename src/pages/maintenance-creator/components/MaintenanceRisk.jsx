@@ -2,7 +2,7 @@ import { useFormDispatchContext, useFormStateContext } from "../context/FormCont
 import "./FormStyles.css"
 
 export default function MaintenaneRisk () {
-    let { riskLevel, notifications } = useFormStateContext()
+    const { riskLevel, notifications } = useFormStateContext()
     const dispatch = useFormDispatchContext()
 
     function handleChange (field, value) {

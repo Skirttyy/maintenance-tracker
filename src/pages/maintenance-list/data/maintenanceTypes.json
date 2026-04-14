@@ -1,7 +1,7 @@
 [
-  { "value": "all", "label": "All Types" },
-  { "value": "high", "label": "High Impact" },
-  { "value": "medium", "label": "Medium Impact" },
-  { "value": "low", "label": "Low Impact" },
-  { "value": "innocent", "label": "No Impact" }
+  { "value": "notifications", "label": "By Notifications" },
+  { "value": "risk-level", "label": "By Risk Level" },
+  { "value": "comments", "label": "By Comments" },
+  { "value": "provider", "label": "By Provider" },
+  { "value": "type", "label": "By Type" }
 ]

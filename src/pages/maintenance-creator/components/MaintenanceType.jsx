@@ -2,7 +2,7 @@ import { useFormDispatchContext, useFormStateContext } from "../context/FormCont
 import "./FormStyles.css"
 
 export default function MaintenanceType () {
-    let { maintenanceType, maintenanceProvider, comments } = useFormStateContext()
+    const { maintenanceType, maintenanceProvider, comments } = useFormStateContext()
     const dispatch = useFormDispatchContext()
 
     function handleChange (field, value) {

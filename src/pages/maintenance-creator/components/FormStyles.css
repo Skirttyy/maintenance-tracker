@@ -381,7 +381,7 @@ p.error {
 ══════════════════════════════════════════════════════════ */
 
 .hidden {
-    visibility: hidden;
+    display: none;
     height: 16px;
     margin: 0;
     font-size: 12px;
@@ -571,4 +571,68 @@ p.error {
         width: 100%;
         justify-content: center;
     }
+}
+
+/* ══════════════════════════════════════════════════════════
+   FINAL STEP — LOADING & ERROR STATES
+══════════════════════════════════════════════════════════ */
+
+.form-step-final-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 32px 24px;
+    text-align: center;
+    background: var(--bg-surface, #ffffff);
+    border: 1.5px solid var(--border, #e2e6f3);
+    border-radius: var(--radius-lg, 16px);
+}
+
+.form-step-final-loading h1 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--text-secondary, #6b7280);
+}
+
+/* Spinner */
+.form-step-final-loading::before {
+    content: '';
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--bg-subtle, #eef1fb);
+    border-top-color: var(--accent, #4f6ef7);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.form-step-final-error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 32px 24px;
+    text-align: center;
+    background: var(--bg-surface, #ffffff);
+    border: 1.5px solid var(--danger, #ef4444);
+    border-radius: var(--radius-lg, 16px);
+}
+
+.form-step-final-error h1 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--danger, #ef4444);
+}
+
+.form-step-final-error h2 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--text-secondary, #6b7280);
 }

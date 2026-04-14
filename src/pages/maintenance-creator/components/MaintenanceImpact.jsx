@@ -3,7 +3,7 @@ import { useFormDispatchContext, useFormStateContext } from "../context/FormCont
 import "./FormStyles.css"
 
 export default function MaintenanceImpact () {
-    let { affectedClients, affectedZones } = useFormStateContext()
+    const { affectedClients, affectedZones } = useFormStateContext()
     const dispatch = useFormDispatchContext()
     const inputRef = useRef(null)
 

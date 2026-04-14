@@ -4,8 +4,16 @@ export default function Card({ data, handleView }) {
 
     function formatDate(val) {
         if (!val) return "—"
-        const [y, m, d] = val.split("-")
-        return `${d}/${m}/${y}`
+        const date = new Date(val)
+
+        const day = String(date.getDate()).padStart(2, "0")
+        const month = String(date.getMonth() + 1).padStart(2, "0")
+        const year = date.getFullYear()
+
+        const hours = String(date.getHours()).padStart(2, "0")
+        const minuntes = String(date.getMinutes()).padStart(2, "0")
+
+        return `${month}-${day}-${year} ${hours}:${minuntes}`
     }
 
     const riskColors = {
@@ -20,8 +28,8 @@ export default function Card({ data, handleView }) {
 
             <div className="card-header">
                 <div className="card-header-left">
-                    <span className="card-type">{data.maintenanceType || "—"}</span>
-                    <span className="card-provider">{data.maintenanceProvider || "—"}</span>
+                    <span className="card-type">{data.type || "—"}</span>
+                    <span className="card-provider">{data.provider || "—"}</span>
                 </div>
                 <span className={`card-risk ${riskColors[data.riskLevel] || ""}`}>
                     {data.riskLevel || "—"}

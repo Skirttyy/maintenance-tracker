@@ -2,7 +2,7 @@ import { useFormDispatchContext, useFormStateContext } from "../context/FormCont
 import "./FormStyles.css"
 
 export default function MaintenanceTime () {
-    let { startDate, endDate } = useFormStateContext()
+    const { startDate, endDate } = useFormStateContext()
     const dispatch = useFormDispatchContext()
 
     function handleChange (field, value) {

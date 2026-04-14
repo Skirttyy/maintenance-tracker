@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export default function useFetch (url, type, page, size) {
+export default function useFetch (url, type, content, page, size) {
     const [data, setData] = useState(null)
     const [loading, setLoading] = useState(null)
     const [error, setError] = useState(null)
@@ -8,7 +8,8 @@ export default function useFetch (url, type, page, size) {
     const atributes = new URLSearchParams({
         type: type,
         page: page,
-        size: size
+        size: size,
+        content: content
     })
 
     useEffect(() => {
@@ -20,7 +21,14 @@ export default function useFetch (url, type, page, size) {
                 setError(null)
                 const res = await fetch(url+`?${atributes}`, { signal: controller.signal })
 
-                if (!res.ok) throw Error("HTTP " + res.status)
+                console.log(res.status)
+                if (!res.ok) {
+                    const error = new Error("HTTP" + res.status)
+                    error.status = res.status
+                    error.body = await res.json()
+                    throw error
+                }
+                    
                 
                 const json = await res.json()
                 setLoading(false)
@@ -28,7 +36,7 @@ export default function useFetch (url, type, page, size) {
             } catch (e) {
                 if (e.name !== "AbortError") {
                     setLoading(false)
-                    setError(e.name)
+                    setError(`Error Status ${e.status}: ${e.body.error}`)
                 }
             }
         }
@@ -36,7 +44,7 @@ export default function useFetch (url, type, page, size) {
         fetchMaintenance()
 
         return () => controller.abort()
-    }, [type, page, size])
+    }, [content, type, page, size])
 
     return { data, loading, error }
 }
