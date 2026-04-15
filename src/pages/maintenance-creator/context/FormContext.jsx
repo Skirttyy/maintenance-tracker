@@ -6,6 +6,7 @@ export const FormStateDispatch = createContext(null)
 const initialForm = {
     step: 1,
     sent: false,
+    maintenanceName: { value: "", touched: false, isEmpty: true, step: 1},
     maintenanceType: { value: "", touched: false, isEmpty: true, step: 1 },
     maintenanceProvider: { value: "", touched: false, isEmpty: true, step: 1 },
     comments: { value: "", touched: false, isEmpty: true, step: 1 },

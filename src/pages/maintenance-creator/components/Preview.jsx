@@ -6,6 +6,7 @@ export default function Preview() {
 
     const {
         step,
+        maintenanceName,
         maintenanceType,
         maintenanceProvider,
         comments,
@@ -43,7 +44,13 @@ export default function Preview() {
             <div className="preview-sections">
 
                 <div className={`preview-section ${step >= 1 ? "unlocked" : "locked"}`}>
-                    <p className="preview-section-label">Type & Provider</p>
+                    <p className="preview-section-label">Info</p>
+                    <div className="preview-row">
+                        <span className="preview-key">Name</span>
+                        <span className="preview-val">
+                            {maintenanceName.value || <span className="preview-empty">—</span>}
+                        </span>
+                    </div>
                     <div className="preview-row">
                         <span className="preview-key">Type</span>
                         <span className="preview-val">

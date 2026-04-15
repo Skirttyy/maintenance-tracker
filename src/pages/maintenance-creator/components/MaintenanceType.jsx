@@ -2,7 +2,7 @@ import { useFormDispatchContext, useFormStateContext } from "../context/FormCont
 import "./FormStyles.css"
 
 export default function MaintenanceType () {
-    const { maintenanceType, maintenanceProvider, comments } = useFormStateContext()
+    const { maintenanceType, maintenanceName, maintenanceProvider, comments } = useFormStateContext()
     const dispatch = useFormDispatchContext()
 
     function handleChange (field, value) {
@@ -39,6 +39,14 @@ export default function MaintenanceType () {
                         return <p key={value} className="form-progress-step"></p>
                     })}
                 </div>
+            </div>
+            <div className="input-text-container">
+                <p>Type here the maintenance name *</p>
+                <input type="text"
+                value={maintenanceName.value === null ? "" : maintenanceName.value}
+                onChange={(e) => handleChange("maintenanceName", e.target.value)} 
+                onBlur={() => dispatch({type: "TOUCH_FIELD", field: "maintenanceName"})}></input>
+                <p className={maintenanceName.touched && maintenanceName.isEmpty ? "error" : "hidden"}>You need to type here a short name!</p>
             </div>
             <div className="input-text-container">
                 <p>Type here the maintenance type *</p>

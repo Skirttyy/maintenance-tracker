@@ -20,6 +20,7 @@ export default function useFetchSend (url, content) {
                     },
                     signal: controller.signal,
                     body: JSON.stringify({
+                        name: content.maintenanceName.value,
                         type: content.maintenanceType.value,
                         provider: content.maintenanceProvider.value,
                         comments: content.comments.value,

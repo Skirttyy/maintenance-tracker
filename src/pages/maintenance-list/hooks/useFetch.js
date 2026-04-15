@@ -33,6 +33,7 @@ export default function useFetch (url, type, content, page, size) {
                 const json = await res.json()
                 setLoading(false)
                 setData(json)
+                
             } catch (e) {
                 if (e.name !== "AbortError") {
                     setLoading(false)

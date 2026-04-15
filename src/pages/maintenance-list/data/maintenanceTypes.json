@@ -1,7 +1,8 @@
 [
-  { "value": "notifications", "label": "By Notifications" },
-  { "value": "risk-level", "label": "By Risk Level" },
   { "value": "comments", "label": "By Comments" },
   { "value": "provider", "label": "By Provider" },
+  { "value": "name", "label": "By Name" },
+  { "value": "notifications", "label": "By Notifications" },
+  { "value": "risk-level", "label": "By Risk Level" },
   { "value": "type", "label": "By Type" }
 ]
