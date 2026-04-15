@@ -21,7 +21,7 @@
 
 /* ── Logo ── */
 .header-container > img:first-child {
-    height: 32px;
+    height: 60px;
     width: auto;
     object-fit: contain;
     margin-right: 20px;

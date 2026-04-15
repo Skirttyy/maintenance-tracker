@@ -28,6 +28,7 @@ export default function Card({ data, handleView }) {
 
             <div className="card-header">
                 <div className="card-header-left">
+                    <span className="card-name">{data.name || "—"}</span>
                     <span className="card-type">{data.type || "—"}</span>
                     <span className="card-provider">{data.provider || "—"}</span>
                 </div>
@@ -61,24 +62,7 @@ export default function Card({ data, handleView }) {
                         ) : "—"}
                     </span>
                 </div>
-                <div className="card-row card-row--wrap">
-                    <span className="card-key">Zones</span>
-                    <div className="card-zones">
-                        {data.zones.length > 0
-                            ? data.zones.map((z) => (
-                                <span key={z.zone} className="card-zone-chip">{z.zone}</span>
-                            ))
-                            : <span className="card-empty">—</span>}
-                    </div>
-                </div>
             </div>
-
-            {data.comments && (
-                <>
-                    <div className="card-divider" />
-                    <p className="card-comments">{data.comments}</p>
-                </>
-            )}
 
             <div className="card-divider" />
 

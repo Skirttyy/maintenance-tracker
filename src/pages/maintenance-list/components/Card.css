@@ -35,10 +35,16 @@
     gap: 3px;
 }
 
-.card-type {
+.card-name {
     font-size: 15px;
     font-weight: 600;
     color: var(--text-primary, #1e2340);
+}
+
+.card-type {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--text-secondary, #6b7280);
 }
 
 .card-provider {

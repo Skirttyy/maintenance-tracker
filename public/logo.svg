@@ -1,0 +1,29 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- Background -->
+  <rect x="2" y="2" width="60" height="60" rx="16"
+        fill="#EEF1FB" stroke="#E2E6F3" stroke-width="1.5"/>
+
+  <!-- Calendar top bar -->
+  <rect x="14" y="18" width="36" height="20" rx="8" fill="#4F6EF7"/>
+
+  <!-- Calendar body -->
+  <rect x="14" y="26" width="36" height="22" rx="8" fill="white"/>
+
+  <!-- Calendar rings -->
+  <rect x="20" y="12" width="6" height="10" rx="3" fill="#3A58E8"/>
+  <rect x="38" y="12" width="6" height="10" rx="3" fill="#3A58E8"/>
+
+  <!-- Calendar dots -->
+  <rect x="20" y="32" width="6" height="6" rx="2" fill="#E2E6F3"/>
+  <rect x="30" y="32" width="6" height="6" rx="2" fill="#4F6EF7"/>
+  <rect x="40" y="32" width="6" height="6" rx="2" fill="#E2E6F3"/>
+
+  <rect x="20" y="40" width="6" height="6" rx="2" fill="#E2E6F3"/>
+  <rect x="30" y="40" width="6" height="6" rx="2" fill="#E2E6F3"/>
+
+  <!-- Wrench -->
+  <path d="M40 38C42.5 38 44.5 36 44.5 33.5C44.5 33 44.4 32.5 44.2 32.1L38 38.3V41L33.5 45.5C32.8 46.2 31.7 46.2 31 45.5C30.3 44.8 30.3 43.7 31 43L35.5 38.5H38.2L44.4 32.3C44 32.1 43.5 32 43 32C40.5 32 38.5 34 38.5 36.5C38.5 37 38.6 37.5 38.8 37.9L40 38Z"
+        fill="#4F6EF7"/>
+
+</svg>
