@@ -22,7 +22,7 @@ export default function MaintenanceTime () {
     }
 
     function handleNextButton () {
-        if ( startDate.isEmpty === false && endDate.isEmpty === false) {
+        if (startDate.isEmpty === false && endDate.isEmpty === false && endDate.value >= startDate.value) {
             dispatch({
                 type: "VALIDATE_STEP",
                 stepToValidate: 3
@@ -57,16 +57,17 @@ export default function MaintenanceTime () {
             </div>
             <div className="input-date-container">
                 <p>Select here the date of maintenance start</p>
-                <input type="date" min={new Date().toISOString().split("T")[0]}
+                <input type="date" min={new Date().toISOString().split("T")[0]} max={endDate.value}
                 onChange={(e) => handleChange("startDate", e.target.value)}
                 onBlur={() => dispatch({type: "TOUCH_FIELD", field: "startDate"})}></input>
                 <p className={startDate.touched && startDate.value === null ? "error" : "hidden"}>You need to select a date!</p>
             </div>
             <div className="input-date-container">
                 <p>Select here the date of maintenance end</p>
-                <input type="date" min={new Date().toISOString().split("T")[0]}
+                <input type="date" min={startDate.value || new Date().toISOString().split("T")[0]}
                 onChange={(e) => handleChange("endDate", e.target.value)}
                 onBlur={() => dispatch({type: "TOUCH_FIELD", field: "endDate"})}></input>
+                on
                 <p className={endDate.touched && endDate.value === null ? "error" : "hidden"}>You need to select a date!</p>
             </div>
             <div className="form-buttons">
