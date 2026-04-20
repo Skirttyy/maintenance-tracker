@@ -5,7 +5,7 @@ import "./Search.css"
 export default function Search ({handleSearch}) {
     const inputRef = useRef(null)
     const selectRef = useRef(null)
-
+    
     return (
         <div className="search-container">
             <input ref={inputRef} placeholder="Search any outage name..."></input>

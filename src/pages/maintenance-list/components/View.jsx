@@ -65,7 +65,7 @@ export default function View () {
                 <button className={page <= 0 ? "page-btn-locked" : "page-btn-unlocked"}
                 onClick={() => handlePageMove("prev")}>Prev</button>
                 <p>Pagina curenta este: {page}</p>
-                <button className={page >= data?.totalPages? "page-btn-locked" : "page-btn-unlocked"}
+                <button className={page >= data?.totalPages ? "page-btn-locked" : "page-btn-unlocked"}
                 onClick={() => handlePageMove("next")}>Next</button>
             </div>
         </div>

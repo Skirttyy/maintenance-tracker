@@ -5,6 +5,7 @@ import Form from './pages/maintenance-creator/components/Form'
 import Footer from './pages/general/Footer'
 import FormProvider from './pages/maintenance-creator/context/FormContext'
 import View from './pages/maintenance-list/components/View'
+import ViewFavorites from './pages/maintenance-favorites/ViewFavorites'
 
 function App() {
   const [page, setPage] = useState("add")
@@ -14,6 +15,7 @@ function App() {
       <FormProvider>
         {page === "add" && <Form />}
         {page === "view" && <View />}
+        {page === "favorites" && <ViewFavorites />}
       </FormProvider>
       <Footer />
     </>

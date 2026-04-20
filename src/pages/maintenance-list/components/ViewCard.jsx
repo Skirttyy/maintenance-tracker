@@ -1,6 +1,10 @@
+import { useLocalStorage } from "../hooks/useLocalStorage";
 import "./ViewCard.css";
 
 export default function ViewCard({ data, handleExitView }) {
+
+    const { addCard, removeCard, checkCard } = useLocalStorage()
+    const exists = checkCard(data.id)
 
     function formatDate(val) {
         if (!val) return "—";
@@ -119,6 +123,12 @@ export default function ViewCard({ data, handleExitView }) {
 
                 {/* FOOTER */}
                 <div className="view-card-footer">
+                    <button className={!exists ? "view-card-favorite" : "hidden"} onClick={() => addCard(data)}>
+                        Add to Favorites
+                    </button>
+                    <button className={exists ? "view-card-favorite-remove" : "hidden"} onClick={() => removeCard(data.id)}>
+                        Remove from Favorites
+                    </button>
                     <button className="view-card-close-btn" onClick={() => handleExitView()}>
                         Close
                     </button>

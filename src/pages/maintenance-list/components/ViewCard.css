@@ -260,3 +260,48 @@
         grid-template-columns: repeat(2, 1fr);
     }
 }
+
+/* FOOTER — FAVORITES */
+.view-card-footer {
+    gap: 10px;
+}
+
+.view-card-favorite {
+    padding: 10px 24px;
+    border-radius: var(--radius-full, 999px);
+    border: 1.5px solid #f59e0b;
+    background: #fef3c7;
+    color: #92400e;
+    cursor: pointer;
+    font-family: var(--font-ui, 'DM Sans', sans-serif);
+    font-size: 14px;
+    font-weight: 500;
+    transition: background 180ms ease, box-shadow 180ms ease;
+}
+
+.view-card-favorite:hover {
+    background: #fde68a;
+    box-shadow: 0 4px 14px rgba(245, 158, 11, 0.25);
+}
+
+.view-card-favorite-remove {
+    padding: 10px 24px;
+    border-radius: var(--radius-full, 999px);
+    border: 1.5px solid #fca5a5;
+    background: #fee2e2;
+    color: #991b1b;
+    cursor: pointer;
+    font-family: var(--font-ui, 'DM Sans', sans-serif);
+    font-size: 14px;
+    font-weight: 500;
+    transition: background 180ms ease, box-shadow 180ms ease;
+}
+
+.view-card-favorite-remove:hover {
+    background: #fecaca;
+    box-shadow: 0 4px 14px rgba(239, 68, 68, 0.2);
+}
+
+.hidden {
+    display: none;
+}
