@@ -6,7 +6,7 @@ import finalStepImage from "@/assets/final-step.png"
 export default function MaintenanceConfirmation () {
     const dispatch = useFormDispatchContext()
     const state = useFormStateContext()
-    const { _data, loading, error } = useFetchSend("http://localhost:9090/api/maintenances/add/", state)
+    const { _data, loading, error } = useFetchSend("http://192.168.100.4:9090/api/maintenances/add/", state)
 
     function handleResetButton() {
         dispatch({

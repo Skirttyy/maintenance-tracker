@@ -32,6 +32,7 @@ export default function useFetch (url, type, content, page, size) {
                 
                 const json = await res.json()
                 setLoading(false)
+                console.log(json)
                 setData(json)
                 
             } catch (e) {

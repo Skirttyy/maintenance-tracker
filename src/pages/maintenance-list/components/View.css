@@ -61,10 +61,6 @@
    ERROR STATE
 ══════════════════════════════════════════════════════════ */
 
-/* ══════════════════════════════════════════════════════════
-   ERROR STATE
-══════════════════════════════════════════════════════════ */
-
 .view-maintenance-error {
     display: flex;
     flex-direction: column;
@@ -209,6 +205,67 @@
 }
 
 /* ══════════════════════════════════════════════════════════
+   PAGES SELECTOR
+══════════════════════════════════════════════════════════ */
+
+.view-maintenance-pages-selector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 8px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border, #e2e6f3);
+    font-family: var(--font-ui, 'DM Sans', sans-serif);
+}
+
+.view-maintenance-pages-selector p {
+    margin: 0;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-secondary, #6b7280);
+}
+
+.page-btn-unlocked {
+    padding: 8px 20px;
+    border-radius: var(--radius-full, 999px);
+    border: 1.5px solid var(--accent, #4f6ef7);
+    background: transparent;
+    color: var(--accent, #4f6ef7);
+    font-family: var(--font-ui, 'DM Sans', sans-serif);
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 180ms ease, box-shadow 180ms ease;
+}
+
+.page-btn-unlocked:hover {
+    background: var(--accent-dim, rgba(79, 110, 247, 0.1));
+    box-shadow: 0 0 0 3px var(--accent-dim, rgba(79, 110, 247, 0.1));
+}
+
+.page-btn-locked {
+    padding: 8px 20px;
+    border-radius: var(--radius-full, 999px);
+    border: 1.5px solid var(--border, #e2e6f3);
+    background: transparent;
+    color: var(--text-muted, #a0a8c0);
+    font-family: var(--font-ui, 'DM Sans', sans-serif);
+    font-size: 13px;
+    font-weight: 500;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* ══════════════════════════════════════════════════════════
+   UTILITY
+══════════════════════════════════════════════════════════ */
+
+.hidden {
+    display: none;
+}
+
+/* ══════════════════════════════════════════════════════════
    ANIMATION
 ══════════════════════════════════════════════════════════ */
 
@@ -228,5 +285,14 @@
 
     .view-maintenance-cards-container {
         grid-template-columns: 1fr;
+    }
+
+    .view-maintenance-pages-selector {
+        gap: 10px;
+    }
+
+    .page-btn-unlocked,
+    .page-btn-locked {
+        padding: 8px 14px;
     }
 }
