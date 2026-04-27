@@ -4,8 +4,10 @@ import Search from "./Search"
 import Card from "./Card"
 import useFetch from "../hooks/useFetch"
 import ViewCard from "./ViewCard"
+import { useSearchParams } from "react-router"
 
 export default function View () {
+    const [_searchParams, setSearchParams] = useSearchParams()
     const url = "http://192.168.100.4:9090/api/maintenances/get/"
 
     const [empty, setEmpty] = useState(true)
@@ -18,6 +20,7 @@ export default function View () {
         if (searchText !== "") {
             setEmpty(false)
             setParams({url: url, type: searchType, content: searchText, page: page, size: 12})
+            setSearchParams({search: searchText, category: searchType, results: "yes"})
             console.log(data)
         } else {
             setEmpty(true)

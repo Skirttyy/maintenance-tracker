@@ -1,9 +1,11 @@
+import { useNavigate } from "react-router"
 import { useFormDispatchContext, useFormStateContext } from "../context/FormContext"
 import "./FormStyles.css"
 
 export default function MaintenaneRisk () {
     const { riskLevel, notifications } = useFormStateContext()
     const dispatch = useFormDispatchContext()
+    const navigate = useNavigate()
 
     function handleChange (field, value) {
         dispatch({
@@ -23,6 +25,7 @@ export default function MaintenaneRisk () {
                 type: "SET_STEP",
                 field: 5
             })
+            navigate('/add/step/5')
         } else {
             dispatch({
                 type: "VALIDATE_STEP",
@@ -36,6 +39,7 @@ export default function MaintenaneRisk () {
             type: "SET_STEP",
             field: 3
         })
+        navigate('/add/step/3')
     } 
 
     return (

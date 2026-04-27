@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import './App.css'
 import Header from './pages/general/Header'
 import Form from './pages/maintenance-creator/components/Form'
@@ -6,18 +5,24 @@ import Footer from './pages/general/Footer'
 import FormProvider from './pages/maintenance-creator/context/FormContext'
 import View from './pages/maintenance-list/components/View'
 import ViewFavorites from './pages/maintenance-favorites/ViewFavorites'
+import Layout from './pages/layouts/Layout'
+import { Route, Routes } from 'react-router'
+import Home from './pages/general/Home'
+import FormsLayout from './pages/layouts/FormsLayout'
 
 function App() {
-  const [page, setPage] = useState("add")
   return (
     <>
-      <Header selectedPage={page} setPageHandler={setPage}/>
-      <FormProvider>
-        {page === "add" && <Form />}
-        {page === "view" && <View />}
-        {page === "favorites" && <ViewFavorites />}
-      </FormProvider>
-      <Footer />
+      <Routes>
+        <Route element={<Layout />}>
+          <Route index element={<Home />}/>
+          <Route path="/add" element={<FormsLayout />}>
+              <Route path="/add/step/:stepNumber" element={<Form />}/>
+          </Route>
+          <Route path='/view' element={<View />}/>
+          <Route path='/favorites' element={<ViewFavorites />}/> 
+        </Route>
+      </Routes>
     </>
   )
 }

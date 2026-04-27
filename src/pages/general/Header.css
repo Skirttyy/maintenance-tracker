@@ -29,7 +29,8 @@
 }
 
 /* ── Nav links ── */
-.header-container > p {
+.header-container > a {
+    text-decoration: none;
     position: relative;
     margin: 0;
     padding: 6px 14px;
@@ -45,13 +46,13 @@
     flex-shrink: 0;
 }
 
-.header-container > p:hover {
+.header-container > a:hover {
     color: var(--text-primary, #1e2340);
     background: var(--bg-subtle, #eef1fb);
 }
 
 /* Active / selected */
-.header-container > p.active {
+.header-container > a.active {
     color: var(--accent, #4f6ef7);
     background: var(--accent-dim, rgba(79, 110, 247, 0.1));
     font-weight: 600;

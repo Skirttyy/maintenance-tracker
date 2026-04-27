@@ -1,9 +1,11 @@
+import { useNavigate } from "react-router"
 import { useFormDispatchContext, useFormStateContext } from "../context/FormContext"
 import "./FormStyles.css"
 
 export default function MaintenanceType () {
     const { maintenanceType, maintenanceName, maintenanceProvider, comments } = useFormStateContext()
     const dispatch = useFormDispatchContext()
+    const navigate = useNavigate()
 
     function handleChange (field, value) {
         dispatch({
@@ -23,6 +25,7 @@ export default function MaintenanceType () {
                 type: "SET_STEP",
                 field: 2
             })
+            navigate("/add/step/2")
         } else {
             dispatch({
                 type: "VALIDATE_STEP",

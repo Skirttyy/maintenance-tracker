@@ -1,11 +1,13 @@
 import { useRef } from "react"
 import { useFormDispatchContext, useFormStateContext } from "../context/FormContext"
 import "./FormStyles.css"
+import { useNavigate } from "react-router"
 
 export default function MaintenanceImpact () {
     const { affectedClients, affectedZones } = useFormStateContext()
     const dispatch = useFormDispatchContext()
     const inputRef = useRef(null)
+    const navigate = useNavigate()
 
     function handleChange (field, value) {
         if (value != "") {
@@ -47,6 +49,7 @@ export default function MaintenanceImpact () {
                 type: "SET_STEP",
                 field: 3
             })
+            navigate("/add/step/3")
         } else {
             dispatch({
                 type: "VALIDATE_STEP",
@@ -60,6 +63,7 @@ export default function MaintenanceImpact () {
             type: "SET_STEP",
             field: 1
         })
+        navigate("/add/step/1")
     } 
 
     return (

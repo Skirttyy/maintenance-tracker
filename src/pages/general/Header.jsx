@@ -1,13 +1,15 @@
+import { NavLink } from "react-router"
 import "./Header.css"
 import logo from "@/assets/logo.png"
 
-export default function Header ({selectedPage, setPageHandler, name, photo}) {
+export default function Header ({name, photo}) {
     return (
         <div className="header-container">
             <img src={logo}></img>
-            <p className={selectedPage === "add" ? "active" : ""} onClick={() => setPageHandler("add")}>Add Maintenance</p>
-            <p className={selectedPage === "view" ? "active" : ""} onClick={() => setPageHandler("view")}>View Maintenances</p>
-            <p className={selectedPage === "favorites" ? "active" : ""} onClick={() => setPageHandler("favorites")}>View Favorites</p>
+            <NavLink to="/" className={({isActive}) => (isActive ? "active" : "")}>Home</NavLink>
+            <NavLink to="/add/step/1" className={({isActive}) => (isActive ? "active" : "")}>Add Maintenance</NavLink>
+            <NavLink to="/view" className={({isActive}) => (isActive ? "active" : "")}>View Maintenances</NavLink>
+            <NavLink to="/favorites" className={({isActive}) => (isActive ? "active" : "")}>Favorites</NavLink>
             <span className="header-spacer" />
             <div className="user-container">
                 <img src={photo}></img>

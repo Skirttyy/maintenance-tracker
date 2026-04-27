@@ -1,0 +1,177 @@
+/* ============================================================
+   NOC MAINTENANCE PLANNER — Home / Welcome Screen
+   Theme: Minimalist Light / Blue & Indigo
+   ============================================================ */
+
+.home-container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 64px 24px 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+    font-family: var(--font-ui, 'DM Sans', sans-serif);
+}
+
+/* ── Hero ── */
+.home-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+}
+
+.home-badge {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent, #4f6ef7);
+    background: var(--accent-dim, rgba(79, 110, 247, 0.1));
+    padding: 6px 16px;
+    border-radius: var(--radius-full, 999px);
+}
+
+.home-title {
+    margin: 0;
+    font-size: 52px;
+    font-weight: 700;
+    color: var(--text-primary, #1e2340);
+    line-height: 1.15;
+    letter-spacing: -1px;
+}
+
+.home-title-accent {
+    color: var(--accent, #4f6ef7);
+}
+
+.home-subtitle {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--text-secondary, #6b7280);
+    max-width: 520px;
+    line-height: 1.7;
+}
+
+.home-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.home-btn-primary {
+    padding: 12px 28px;
+    border-radius: var(--radius-full, 999px);
+    border: 1.5px solid var(--accent, #4f6ef7);
+    background: var(--accent, #4f6ef7);
+    color: #ffffff;
+    font-family: var(--font-ui, 'DM Sans', sans-serif);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 180ms ease, box-shadow 180ms ease;
+}
+
+.home-btn-primary:hover {
+    background: var(--accent-hover, #3a58e8);
+    box-shadow: 0 4px 14px rgba(79, 110, 247, 0.35);
+}
+
+.home-btn-primary:active {
+    background: #3248d0;
+    box-shadow: none;
+}
+
+.home-btn-secondary {
+    padding: 12px 28px;
+    border-radius: var(--radius-full, 999px);
+    border: 1.5px solid var(--border, #e2e6f3);
+    background: transparent;
+    color: var(--text-secondary, #6b7280);
+    font-family: var(--font-ui, 'DM Sans', sans-serif);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: border-color 180ms ease, background 180ms ease, color 180ms ease;
+}
+
+.home-btn-secondary:hover {
+    border-color: var(--border-strong, #c7cee8);
+    background: var(--bg-subtle, #eef1fb);
+    color: var(--text-primary, #1e2340);
+}
+
+/* ── Feature Cards ── */
+.home-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.home-card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 24px;
+    background: var(--bg-surface, #ffffff);
+    border: 1.5px solid var(--border, #e2e6f3);
+    border-radius: var(--radius-lg, 16px);
+    transition: box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.home-card:hover {
+    border-color: var(--border-strong, #c7cee8);
+    box-shadow: 0 4px 20px rgba(30, 35, 64, 0.08);
+}
+
+.home-card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    font-size: 20px;
+    background: var(--bg-subtle, #eef1fb);
+    border-radius: var(--radius-md, 12px);
+}
+
+.home-card-title {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-primary, #1e2340);
+}
+
+.home-card-desc {
+    margin: 0;
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--text-secondary, #6b7280);
+    line-height: 1.6;
+}
+
+/* ── Responsive ── */
+@media (max-width: 700px) {
+    .home-title {
+        font-size: 36px;
+    }
+
+    .home-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .home-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .home-btn-primary,
+    .home-btn-secondary {
+        width: 100%;
+        text-align: center;
+    }
+}
