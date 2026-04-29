@@ -1,0 +1,64 @@
+/* NotFound.css */
+
+.not-found-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  min-height: 100vh;
+  padding: 2rem;
+  text-align: center;
+}
+
+.not-found-container h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  max-width: 480px;
+  line-height: 1.25;
+  margin: 0;
+}
+
+.not-found-container h2 {
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.not-found-container button {
+  margin-top: 0.5rem;
+  padding: 0.8rem 2rem;
+  font-size: 0.85rem;
+  font-family: inherit;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--bg);
+  background-color: var(--accent);
+  border: 1.5px solid var(--accent);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background-color var(--transition), color var(--transition), transform 0.15s ease;
+}
+
+.not-found-container button:hover {
+  background-color: transparent;
+  color: var(--accent);
+}
+
+.not-found-container button:active {
+  transform: scale(0.98);
+}
+
+/* ── Animation ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.not-found-container h1     { animation: fadeUp 0.4s ease both 0.05s; }
+.not-found-container h2     { animation: fadeUp 0.4s ease both 0.1s; }
+.not-found-container button { animation: fadeUp 0.4s ease both 0.15s; }

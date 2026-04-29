@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import "./View.css"
 import Search from "./Search"
 import Card from "./Card"
@@ -7,20 +7,27 @@ import ViewCard from "./ViewCard"
 import { useSearchParams } from "react-router"
 
 export default function View () {
-    const [_searchParams, setSearchParams] = useSearchParams()
-    const url = "http://192.168.100.4:9090/api/maintenances/get/"
+    const [searchParams, setSearchParams] = useSearchParams()
+    const url = "http://localhost:9090/api/maintenances/get/"
 
     const [empty, setEmpty] = useState(true)
-    const [viewCard, setViewCard] = useState(null)
-    const [page, setPage] = useState(0)
     const [params, setParams] = useState({});
     const { data, loading, error } = useFetch(params.url, params.type, params.content, params.page, params.size);
+    const [viewCard, setViewCard] = useState(null)
+    console.log("viewcard: " + viewCard)
+    const [page, setPage] = useState(0)
 
-    function handleSearch (searchText, searchType) {
+    useEffect(() => {
+        const id = Number(searchParams.get("viewCard"))
+        const found = data?.content?.find((ele) => ele.id === id) || null
+        setViewCard(found)
+    }, [data])
+
+    function handleSearch (searchText, searchType, viewCardId) {
         if (searchText !== "") {
             setEmpty(false)
             setParams({url: url, type: searchType, content: searchText, page: page, size: 12})
-            setSearchParams({search: searchText, category: searchType, results: "yes"})
+            setSearchParams({search: searchText, category: searchType, results: "yes", viewCard: viewCardId})
             console.log(data)
         } else {
             setEmpty(true)
@@ -29,10 +36,12 @@ export default function View () {
 
     function handleView (data) {
         setViewCard(data)
+        setSearchParams({...Object.fromEntries(searchParams.entries()), viewCard: data?.id})
     }
 
     function handleExitView () {
         setViewCard(null)
+        setSearchParams({...Object.fromEntries(searchParams.entries()), viewCard: ""})
     }
 
     function handlePageMove (type) {

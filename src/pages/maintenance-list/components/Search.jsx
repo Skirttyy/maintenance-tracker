@@ -10,10 +10,15 @@ export default function Search ({handleSearch}) {
     const inputRef = useRef(null)
     const selectRef = useRef(null)
     const results = searchParams.get("results")
+    const viewCardId = Number(searchParams.get("viewCard"))
 
     useEffect(() => {
         if (results === "yes") {
-            handleSearch(inputRef.current.value, selectRef.current.value)
+            if (viewCardId >= 0) {
+                handleSearch(inputRef.current.value, selectRef.current.value, viewCardId)
+            } else {
+                handleSearch(inputRef.current.value, selectRef.current.value)
+            }
         }
     }, [results])
     

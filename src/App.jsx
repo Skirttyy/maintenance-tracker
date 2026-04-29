@@ -9,6 +9,7 @@ import Layout from './pages/layouts/Layout'
 import { Route, Routes } from 'react-router'
 import Home from './pages/general/Home'
 import FormsLayout from './pages/layouts/FormsLayout'
+import NotFound from './pages/general/NotFound'
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           </Route>
           <Route path='/view' element={<View />}/>
           <Route path='/favorites' element={<ViewFavorites />}/> 
+          <Route path='*' element={<NotFound />}/>
         </Route>
       </Routes>
     </>
